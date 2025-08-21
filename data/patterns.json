@@ -1,0 +1,72 @@
+{
+  "patterns": {
+    "component-structure": {
+      "description": "Standard Fluent UI v9 component structure",
+      "example": "export const Component = React.forwardRef((props, ref) => { const state = useComponent_unstable(props, ref); useComponentStyles_unstable(state); return renderComponent_unstable(state); });"
+    },
+    "hook-pattern": {
+      "description": "Component state hook pattern",
+      "example": "export const useComponent_unstable = (props, ref) => { return { components: { root: 'div' }, root: slot.always(getIntrinsicElementProps('div', { ref, ...props }), { elementType: 'div' }) }; };"
+    },
+    "styles-pattern": {
+      "description": "Component styling pattern with makeStyles",
+      "example": "const useStyles = makeStyles({ root: { display: 'flex', color: tokens.colorNeutralForeground1 } }); export const useComponentStyles_unstable = (state) => { const styles = useStyles(); state.root.className = mergeClasses(componentClassNames.root, styles.root, state.root.className); return state; };"
+    },
+    "render-pattern": {
+      "description": "Component render function pattern",
+      "example": "export const renderComponent_unstable = (state) => { assertSlots(state); return <state.root>{state.children}</state.root>; };"
+    },
+    "types-pattern": {
+      "description": "TypeScript types pattern for components",
+      "example": "export type ComponentSlots = { root: NonNullable<Slot<'div'>>; }; export type ComponentProps = ComponentProps<ComponentSlots>; export type ComponentState = ComponentState<ComponentSlots>;"
+    }
+  },
+  "antiPatterns": {
+    "inline-styles": {
+      "description": "Avoid inline styles, use makeStyles instead",
+      "bad": "style={{ color: 'red', padding: '8px' }}",
+      "good": "const styles = makeStyles({ root: { color: tokens.colorStatusErrorForeground1, padding: tokens.spacingHorizontalS } });"
+    },
+    "hardcoded-values": {
+      "description": "Avoid hardcoded values, use design tokens",
+      "bad": "color: '#0078d4', fontSize: '14px'",
+      "good": "color: tokens.colorBrandBackground, fontSize: tokens.fontSizeBase300"
+    },
+    "any-types": {
+      "description": "Avoid any types, use proper TypeScript types",
+      "bad": "const props: any",
+      "good": "const props: ComponentProps"
+    },
+    "deprecated-imports": {
+      "description": "Avoid v8 import paths",
+      "bad": "import { Button } from '@fluentui/react/lib/Button'",
+      "good": "import { Button } from '@fluentui/react-components'"
+    }
+  },
+  "bestPractices": {
+    "component-composition": [
+      "Separate component logic into hooks",
+      "Use render functions for JSX output",
+      "Keep components pure and testable",
+      "Follow single responsibility principle"
+    ],
+    "styling": [
+      "Use design tokens for consistency",
+      "Prefer makeStyles over inline styles",
+      "Use mergeClasses for class combination",
+      "Follow atomic CSS principles"
+    ],
+    "accessibility": [
+      "Use semantic HTML elements",
+      "Provide proper ARIA attributes",
+      "Support keyboard navigation",
+      "Ensure sufficient color contrast"
+    ],
+    "performance": [
+      "Use React.memo for expensive components",
+      "Optimize re-renders with proper dependencies",
+      "Use code splitting for large components",
+      "Minimize bundle size with tree shaking"
+    ]
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "categories": {
+    "inputs": {
+      "description": "Components for user input and interaction",
+      "components": ["Button", "Checkbox", "Input", "Textarea", "Combobox", "Select", "Switch", "Slider", "SpinButton", "RadioGroup", "SearchBox", "TagPicker"]
+    },
+    "data-display": {
+      "description": "Components for displaying data and information",
+      "components": ["Avatar", "AvatarGroup", "Badge", "CounterBadge", "PresenceBadge", "Text", "Label", "Image", "List", "DataGrid", "Table", "Tree", "Skeleton", "Rating"]
+    },
+    "layout": {
+      "description": "Components for layout and structure",
+      "components": ["Card", "CardHeader", "CardPreview", "CardFooter", "Divider", "Accordion", "Field", "FieldGroup"]
+    },
+    "surfaces": {
+      "description": "Components that contain other components",
+      "components": ["Dialog", "Drawer", "Modal", "Panel", "Popover"]
+    },
+    "navigation": {
+      "description": "Components for navigation and wayfinding", 
+      "components": ["Breadcrumb", "Link", "Menu", "MenuList", "Nav", "TabList", "Toolbar"]
+    },
+    "feedback": {
+      "description": "Components for providing feedback to users",
+      "components": ["MessageBar", "Toast", "Tooltip", "TeachingPopover", "ProgressBar", "Spinner"]
+    }
+  },
+  "packageMapping": {
+    "Button": "@fluentui/react-button",
+    "Avatar": "@fluentui/react-avatar",
+    "Card": "@fluentui/react-card",
+    "Checkbox": "@fluentui/react-checkbox",
+    "Input": "@fluentui/react-input",
+    "Text": "@fluentui/react-text",
+    "Label": "@fluentui/react-label",
+    "Dialog": "@fluentui/react-dialog",
+    "Menu": "@fluentui/react-menu",
+    "Tooltip": "@fluentui/react-tooltip"
+  },
+  "status": {
+    "stable": ["Button", "Avatar", "Card", "Checkbox", "Input", "Text", "Label"],
+    "preview": ["DataGrid", "TagPicker"],
+    "deprecated": []
+  }
+}
