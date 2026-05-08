@@ -45,6 +45,10 @@ A comprehensive **Model Context Protocol (MCP) server** that provides intelligen
 
 ## 🚀 Quick Start
 
+```bash
+npx fluentui-mcp-server
+```
+
 ### Prerequisites
 
 - Node.js 18+
@@ -76,6 +80,8 @@ npm start
 # Or run in development mode with hot reload
 npm run dev
 ```
+
+The published CLI executable points directly to `dist/server.js`.
 
 ## 🔧 Available Tools
 
@@ -492,8 +498,8 @@ Add to your `claude_desktop_config.json`:
 {
   "mcpServers": {
     "fluentui": {
-      "command": "node",
-      "args": ["/path/to/fluentui-mcp-server/dist/server.js"]
+      "command": "npx",
+      "args": ["-y", "fluentui-mcp-server"]
     }
   }
 }
@@ -512,12 +518,12 @@ const client = new Client(
   },
   {
     capabilities: {},
-  }
+  },
 );
 
 const transport = new StdioClientTransport({
-  command: "node",
-  args: ["./dist/server.js"],
+  command: "npx",
+  args: ["-y", "fluentui-mcp-server"],
 });
 
 await client.connect(transport);
