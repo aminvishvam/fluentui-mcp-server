@@ -4,6 +4,13 @@
   "description": "MCP Server for Fluent UI component knowledge, code generation, and design validation",
   "main": "dist/server.js",
   "type": "module",
+  "bin": {
+    "fluentui-mcp-server": "./dist/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aminvishvam/fluentui-mcp-server"
+  },
   "scripts": {
     "build": "tsc",
     "dev": "tsx watch src/server.ts",
